@@ -8,7 +8,6 @@ export const Navbar = () => {
   const [current, setCurrent] = useState("mail");
 
   const handleClick = (e: any) => {
-    console.log("click ", e);
     setCurrent(e.key);
   };
 
@@ -17,8 +16,8 @@ export const Navbar = () => {
       <Menu.Item key="mail">
         <Link to="products">Products</Link>
       </Menu.Item>
-      <Menu.Item key="app" disabled>
-        Navigation Two
+      <Menu.Item key="app">
+        <Link to="ProductsSuspense">ProductsSuspense</Link>
       </Menu.Item>
       <SubMenu title={<span>Navigation Three - Submenu</span>}>
         <MenuItemGroup title="Item 1">

@@ -1,13 +1,16 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClientProvider } from "@tanstack/react-query";
 import { router } from "./Routes";
 import { RouterProvider } from "react-router-dom";
-
-const queryClient = new QueryClient();
+import { Suspense } from "react";
+import { Spin } from "antd";
+import { queryClient } from "./QueryClient";
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <Suspense fallback={<Spin />}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </Suspense>
   );
 }
